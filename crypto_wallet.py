@@ -33,7 +33,7 @@ def generate_account():
     private, public = wallet.derive_account("eth")
 
     # Convert private key into an Ethereum account
-    account = Account.privateKeyToAccount(private)
+    account = Account.from_key(private)
 
     return account
 
@@ -44,7 +44,7 @@ def get_balance(w3, address):
     wei_balance = w3.eth.get_balance(address)
 
     # Convert Wei value to ether
-    ether = w3.fromWei(wei_balance, "ether")
+    ether = w3.from_wei(wei_balance, "ether")
 
     # Return the value in ether
     return ether
